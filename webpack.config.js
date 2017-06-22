@@ -1,3 +1,5 @@
+var LiveReloadPlugin = require('webpack-livereload-plugin');
+
 module.exports = {
   entry: [
     './src/index.js'
@@ -12,7 +14,7 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel',
       query: {
-        presets: ['react', 'es2015', 'stage-1']
+        presets: ['react', 'es2015', 'stage-1','react-hmre']
       }
     }]
   },
@@ -22,5 +24,8 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './'
-  }
+  },
+    plugins: [
+        new LiveReloadPlugin()
+    ]
 };
